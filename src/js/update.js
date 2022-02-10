@@ -31,11 +31,12 @@ function onUpdateMovie(e){
   updateMovieData
 }
 
-function setFieldValues({genre, image, movie, price}) {
+function setFieldValues({genre, image, movie, price, rating}) {
   // this is how we get the field values using movie form and its elments
   movieForm.elements['movieName'].value = movie
   movieForm.elements['priceName'].value = price
   movieForm.elements['genreName'].value = genre
+  movieForm.elements['ratingName'].value = rating
   document.querySelector('#uploadImage img').src = image
 }
 
@@ -44,6 +45,7 @@ function updateMovieData(){
   const movie = movieForm.elements['movieName'].value.trim()
   const price = movieForm.elements['priceName'].value.trim()
   const genre = movieForm.elements['genreName'].value.trim()
+  const rating = movieForm.elements['ratingName'].value.trim()
   const file = movieForm.elements['movieImage'].files
     if(file.length !==0){
       // format teh storage for the new image 
@@ -58,7 +60,8 @@ function updateMovieData(){
       image:urlPath,
       movie,
       price,
-      genre
+      genre,
+      rating
     })
 }
 pageInit()

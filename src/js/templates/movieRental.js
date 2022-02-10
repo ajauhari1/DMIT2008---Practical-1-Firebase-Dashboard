@@ -5,7 +5,7 @@
           <div class="body">
 */
 
-function movieRental({key, image, movie, price, genre, sku }){
+function movieRental({key, image, movie, price, genre, rating }){
     const template = `
     <div class="body">
         <div class="container">
@@ -17,7 +17,7 @@ function movieRental({key, image, movie, price, genre, sku }){
                     <h4>Movie: ${movie}</h4>
                     <h4>Price:<span>$</span> ${price}</h4>
                     <h4>Genre: ${genre}</h4>
-                    <h4>SKU: ${sku}</h4>
+                    <h4>Rating: ${rating}<span>/5</span></h4>
                 </div>
                 <div class="btn">
                     <button type="button">Buy</button>

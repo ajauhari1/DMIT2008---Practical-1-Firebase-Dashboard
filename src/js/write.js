@@ -28,16 +28,17 @@ document.forms["movieForm"].addEventListener("submit", onAddMovie);
         const movie = document.querySelector('#movieName').value.trim();
         const price = document.querySelector('#priceName').value.trim();
         const genre = document.querySelector('#genreName').value.trim();
+        const rating = document.querySelector('#ratingName').value.trim();
         const file = document.querySelector('#movieImage').files[0]
         
         // paths to the data to write
         const imageRef = storageRef( storage, `images/${file.name}`);
-        const dataRef =  databaseRef( db, 'movies') //use to be 'rentals'
+        const dataRef =  databaseRef( db, 'movies')
 
         // uploading file to the storage bucket
         const uploadResult = await uploadBytes(imageRef, file);
         // url to the image stored in storage bucket
-        const urlPath =  await getDownloadURL(imageRef) 
+        const urlPath =  await getDownloadURL(imageRef) // image path
         // path on the storage bucket to the image
         const storagePath = uploadResult.metadata.fullPath;
 
@@ -51,8 +52,11 @@ document.forms["movieForm"].addEventListener("submit", onAddMovie);
            image:urlPath,
            movie,
            price,
-           genre
+           genre,
+           rating
         })
-        
+        .then(()=>{
+            alert("Added Movie Successfully!")
+        })
     }
  

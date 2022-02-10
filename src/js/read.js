@@ -14,7 +14,7 @@ async function pageInit(){
     // Object.keys(obj)   Object.enteries(obj) Object.values(obj)
     // object['prop']
      Object.values(data).map(rental=>{
-          const card = movieRental(rental) //chnge vacationRental to say movieRental...
+          const card = movieRental(rental) 
           document.body.append(card)
           
      })
