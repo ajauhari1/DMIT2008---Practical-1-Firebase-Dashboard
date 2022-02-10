@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="msapplication-TileColor" content="#c8112e" />
+  <meta name="theme-color" content="#c8112e" />
+  <meta name="description" content="Abhishek Jauhari Store" />
+  <title>Write</title>
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="module" src="js/mobile.js"></script>
+  <script type="module" src="js/write.js"></script>
+</head>
+
+<body>
+  <header>
+    <a class="logo" href="index.html"><img width=50px; height=50px; src="img/movie-svgrepo-com.svg" alt="company logo"></a>
+    <nav>
+      <ul class="nav__links">
+    
+        <li><a href="index.html">Contact</a></li>
+        <li><a href="index.html">More Info</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="#">MENU</a>
+    <p class="menu cta">Menu</p>
+  </header>
+  <div class="overlay">
+    <a class="close">&times;</a>
+    <div class="overlay__content">
+
+      <a href="update.html">Update</a>
+      <a href="delete.html">Delete</a>
+      <a href="read.html">Read</a>
+    </div>
+  </div>
+
+
+  <main>
+    <style>
+      /* need */
+      .add-new-property {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+/* need */
+      .display {
+        margin: 0 auto 1rem;
+        box-shadow: 0 0 1px 1px #d6d3d1;
+        border: 6px solid white;
+      }
+/* need */
+      .display img {
+        object-fit: fill;
+        width: 100%;
+        height: 300px;
+        display: block;
+      }
+
+      .submit-button button {
+        width: 100%;
+      }
+/* need */
+      .form-control {
+        margin: 1rem 0;
+      }
+
+      button {
+        border-radius: 0;
+      }
+
+      button:focus {
+        outline: 1px dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+      }
+
+      input,
+      button,
+      select,
+      optgroup,
+      textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+
+      button,
+      input {
+        overflow: visible;
+      }
+
+      button,
+      select {
+        text-transform: none;
+      }
+
+      button,
+      [type=button],
+      [type=reset],
+      [type=submit] {
+        -webkit-appearance: button;
+      }
+
+      button::-moz-focus-inner,
+      [type=button]::-moz-focus-inner,
+      [type=reset]::-moz-focus-inner,
+      [type=submit]::-moz-focus-inner {
+        padding: 0;
+        border-style: none;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        margin: 0;
+      }
+
+      .submit,
+      button,
+      .button-small {
+        background-color: transparent;
+        padding: 0.5rem 2rem;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 0 0 1px 1px #d6d3d1;
+        outline: none;
+        color: #78716c;
+      }
+
+      .button-small {
+        font-size: 14px;
+      }
+
+      .submit {
+        width: 100%;
+        background-color: #0284c7;
+        box-shadow: none;
+        color: white;
+      }
+
+      .button-small {
+        font-size: 14px;
+        padding: 0.25rem 1rem;
+      }
+      ::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+    </style>
+
+    <form id="movieForm" class="add-new-property">
+
+      <div class="property-image form-control">
+        <div class="display">
+          <img src="img/movie-img/jungle_curise.jpg" alt="movie image to upload">
+        </div>
+        <label for="movieImage">Select image </label>
+        <input type="file" id="movieImage" style="display:none" class="select-file" accept=".jpg, .png, .jpeg, .webp">
+
+      </div>
+
+      <div class="movie-name form-control">
+        <label for="movie-name">Movie Name: </label>
+        <input id="movieName" type="text" placeholder="Jungle jungle_curise..."><br>
+        <label for="price-name">Price: </label>
+        <input id="priceName" type="text" placeholder="Price..."><br>
+        <label for="genre-name">Genre: </label>
+        <input id="genreName" type="text" placeholder="Fantasy...">
+      </div>
+
+      <div class="c">
+        <button type="submit">Add Movie</button>
+
+      </div>
+    </form>
+
+  </main>
+</body>
+
+</html>
