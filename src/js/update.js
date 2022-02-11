@@ -87,5 +87,8 @@ async function updateMovieData(){
       genre,
       rating
     })
+    .then(()=>{
+      alert("Edit Successful..Go to Main to see update")
+  })
 }
 pageInit()

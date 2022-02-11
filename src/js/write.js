@@ -61,7 +61,7 @@ document.forms["movieForm"].addEventListener("submit", onAddMovie);
            rating
         })
         .then(()=>{
-            alert("Added Movie Successfully!")
+            alert("Add successful... Refresh to Main Page")
         })
     }
  
