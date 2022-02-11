@@ -31,9 +31,13 @@ document.forms["movieForm"].addEventListener("submit", onAddMovie);
         const rating = document.querySelector('#ratingName').value.trim();
         const file = document.querySelector('#movieImage').files[0]
         
+        const dataRef =  databaseRef( db, 'movies') // ref to RTD store
+        // firebase unique key
+        // push return a ref to the area with they key but no data is written 
+        const itemRef = await push(dataRef)
         // paths to the data to write
-        const imageRef = storageRef( storage, `images/${file.name}`);
-        const dataRef =  databaseRef( db, 'movies')
+        const imageRef = storageRef( storage, `images/MVHR${itemRef.key}`); //images/sku
+        
 
         // uploading file to the storage bucket
         const uploadResult = await uploadBytes(imageRef, file);
@@ -42,14 +46,15 @@ document.forms["movieForm"].addEventListener("submit", onAddMovie);
         // path on the storage bucket to the image
         const storagePath = uploadResult.metadata.fullPath;
 
-        // firebase unique key
-        // push return a ref to the area with they key but no data is written 
-        const itemRef = await push(dataRef)
+       
+
+        
         // ref.key
         set(itemRef,{
            key:itemRef.key,
            sku:`MVHR${itemRef.key}`,
            image:urlPath,
+           storagePath,
            movie,
            price,
            genre,

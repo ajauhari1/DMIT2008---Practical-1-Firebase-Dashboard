@@ -8,27 +8,37 @@ import { db, storage  } from "./libs/firebase/firebaseConfig";
   // pull data from the values
   // create object
   //sent the object to firestore
+document.querySelector("#movieImage").addEventListener("change", onImageSelected);
+
+function onImageSelected(e) {
+  let file = e.target.files[0];
+  
+  document.querySelector(".display img").src = URL.createObjectURL(file);
+  }
+
 const movieForm = document.forms['movieForm'] // top level access so all function have acess to form
+const key = sessionStorage.getItem('key')
+let existingMovie; 
 
 async function pageInit(){
-  const key = sessionStorage.getItem('key')
-  const rentalRef = databaseRef(db, `movies/${key}`) //path to the data and ref to it
-  const rentalSnapShot = await get(rentalRef) // need await to get the data 
+
+  const movieRef = databaseRef(db, `movies/${key}`) //path to the data and ref to it
+  const movieSnapShot = await get(movieRef) // need await to get the data 
 
     //formatter for the form
-    if(rentalSnapShot.exists()){
-      setFieldValues(rentalSnapShot.val())
+    if(movieSnapShot.exists()){
+      existingMovie = movieSnapShot.val()
+      setFieldValues(existingMovie)
     }
     
-    rentalForm.addEventListner('submit', onUpdateMovie)
+    movieForm.addEventListener('submit', onUpdateMovie)
 
  
 }
 
 function onUpdateMovie(e){
   e.preventDefault();
-  
-  updateMovieData
+  updateMovieData();
 }
 
 function setFieldValues({genre, image, movie, price, rating}) {
@@ -40,24 +50,38 @@ function setFieldValues({genre, image, movie, price, rating}) {
   document.querySelector('#uploadImage img').src = image
 }
 
-function updateMovieData(){
+async function updateMovieData(){
 
   const movie = movieForm.elements['movieName'].value.trim()
   const price = movieForm.elements['priceName'].value.trim()
   const genre = movieForm.elements['genreName'].value.trim()
   const rating = movieForm.elements['ratingName'].value.trim()
-  const file = movieForm.elements['movieImage'].files
-    if(file.length !==0){
+  
+  const sku = existingMovie.sku //MVHR${itemRef.key}
+
+  let urlPath = existingMovie.image
+  let storagePath = existingMovie.storagePath //declare both for outside of scope..
+
+    if(movieForm.elements['movieImage'].files.length !==0){
+      const file = movieForm.elements['movieImage'].files[0]
       // format teh storage for the new image 
       // images/key/file.name storage path
-      const imageRef = storageRef(storage, `images/${file.name}`) // this is just the path not the image
+      const imageRef = storageRef(storage, `images/${sku}`) // this is just the path not the image
+      // uploading file to the storage bucket
+      const uploadResult = await uploadBytes(imageRef, file);
+      // url to the image stored in storage bucket
+      urlPath =  await getDownloadURL(imageRef) // image path
+      // path on the storage bucket to the image
+      storagePath = uploadResult.metadata.fullPath;
     }
 
-    const key = sessionStorage.getItem('key')
     const dataRef =  databaseRef( db, `movies/${key}`) //we want to write to movies/key..
     set(dataRef,{
-      //pass the date..
+      //pass all the values...
+      key,
+      sku,
       image:urlPath,
+      storagePath,
       movie,
       price,
       genre,
