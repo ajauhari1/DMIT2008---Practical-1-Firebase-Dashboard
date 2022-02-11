@@ -9,7 +9,7 @@
     "build": "npx parcel build src/index.html"
   },
   "keywords": [],
-  "author": "",
+  "author": "Abhishek Jauhari",
   "license": "ISC",
   "dependencies": {
     "base-64": "^1.0.0",
@@ -20,5 +20,14 @@
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.2.1",
     "@parcel/transformer-webmanifest": "^2.2.1"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajauhari1/DMIT2008---Practical-1-Firebase-Dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ajauhari1/DMIT2008---Practical-1-Firebase-Dashboard/issues"
+  },
+  "homepage": "https://github.com/ajauhari1/DMIT2008---Practical-1-Firebase-Dashboard#readme"
 }

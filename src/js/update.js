@@ -32,8 +32,6 @@ async function pageInit(){
     }
     
     movieForm.addEventListener('submit', onUpdateMovie)
-
- 
 }
 
 function onUpdateMovie(e){
