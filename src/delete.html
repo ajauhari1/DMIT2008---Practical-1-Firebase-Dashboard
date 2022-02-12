@@ -36,9 +36,46 @@
       <a href="index.html">Main</a>
     </div>
 </div>
-
+<style>
+  main {
+    align-items: center;
+    display: flex;
+  }
+  .delete-confirmation {
+    background-color: #3fadd1; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+}
+.delete-confirmation:hover {
+  background-color: #0e5896b7; /* Green */
+  color: white;
+}
+main {
+  height: 200px;
+  position: relative;
+}
+.button-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  right: 30%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+</style>
   <main>
-
+    <div class="button-container">
+      <div class="button-center">
+        <button id="main-page-after-delete" class="delete-confirmation" type="submit">Delete Successful! Click to Return Main Page</button>
+      </div>
+    </div>
+   
   </main>
 </body>
 

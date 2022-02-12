@@ -12,3 +12,10 @@ function pageInit(){
   
   
   pageInit()
+
+
+    rental.querySelector('#main-page-after-delete').addEventListener('click', onRemoveMovie)
+
+function onRemoveMovie(e){
+      window.location.assign('index.html')
+  }
