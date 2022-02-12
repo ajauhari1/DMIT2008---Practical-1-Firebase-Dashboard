@@ -52,6 +52,7 @@ function onRemoveMovie(e){
     if (result) {
     //Logic to delete the item
     window.location.assign('delete.html')
+    window.location.assign('index.html')
     }
     else {
         window.location.assign('index.html')
