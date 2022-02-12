@@ -8,7 +8,6 @@ function pageInit(){
   // console.log("Delete Page")
   // console.log(key)
     // remove the data  remove()
-    window.location.assign('index.html')
   }
   
   
