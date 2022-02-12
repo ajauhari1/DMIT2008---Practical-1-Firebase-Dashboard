@@ -2,7 +2,6 @@
 This website allows user to read, add, update and delete movie(s).
 
 
- 
 ### 1. Read
 Main page will take you to read, which will show you all the movies in the current libraries to rent/buy. On the Navbar there is a "main" link that will 
 take you back to the main page (read page)
@@ -20,7 +19,8 @@ On the product card for movies, there is a option for "Edit". Clicking on this w
 On the product card for movies, there is a option for "Delete". Clicking on this will let user delete the movie. Click on "Main" to go back to read page to see your update. 
 
 
- 
+ ### 5. Buy Movie
+ Buy movie functionality has not been completed yet...
  
 
 
