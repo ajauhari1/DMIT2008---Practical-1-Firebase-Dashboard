@@ -1,15 +1,25 @@
-# Crudy Read JavaScript
-How to read data from the real time database and render the vacations in the browser. Your template should display the image the city and present the user with options to remove or edit the vacation rental property.
+# Abhishek Store Movie Rent-Buy
+This website allows user to read, add, update and delete movie(s).
 
 
  
-### 1. Make Sure You Have Data
-Make sure you have at least 4 data sets in the RTD (real time database). We will use this data in the read.html page to present the data using a render function.
+### 1. Read
+Main page will take you to read, which will show you all the movies in the current libraries to rent/buy. On the Navbar there is a "main" link that will 
+take you back to the main page (read page)
 
 
-### 2. Code
-The code for the example is in the snippets folder ```read.md```.  
-You still have to create a display component for a vacation rental and add the styles.
+### 2. Add Movie
+On the Side Bar there is a option to "Add Movie" to the collection. Clicking this will take user to the add page where they can enter information to add
+a movie for rent/buy. First choose a picture by clicking on "Click Here to Select Image", then fill out Movie Name, Price ($), Genre, and a rating out of 5 and click "Update" button. Once added is complete, please click on "Main" to go back to read pages to see any new movies added.
+
+
+### 3. Edit Movie
+On the product card for movies, there is a option for "Edit". Clicking on this will take user to the edit screen. The interface is similar to how you add a movie, just click on "Update" once done. Click on "Main" to go back to read page to see your update.
+
+### 4. Delete Movie
+On the product card for movies, there is a option for "Delete". Clicking on this will let user delete the movie. Click on "Main" to go back to read page to see your update. 
+
+
  
  
 
