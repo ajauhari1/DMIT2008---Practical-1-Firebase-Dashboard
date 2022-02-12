@@ -48,7 +48,22 @@ function onEditMovie(e){
 function onRemoveMovie(e){
     const key = e.target.dataset.key;
     sessionStorage.setItem('key', key)
+    var result = confirm("Want to delete?");
+    if (result) {
+    //Logic to delete the item
     window.location.assign('delete.html')
+    }
+    else {
+        window.location.assign('index.html')
+    }
+    
 }
 
 export {movieRental}
+
+/*
+function onRemoveMovie(e){
+    const key = e.target.dataset.key;
+    sessionStorage.setItem('key', key)
+    window.location.assign('delete.html')
+}*/
